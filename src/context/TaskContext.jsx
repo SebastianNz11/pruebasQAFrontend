@@ -46,6 +46,20 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
+  const updateProduct = async (id, updatedProduct) => {
+    try {
+      const respose = await axios.put(`${url}/products/${id}`, updatedProduct, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }
+      });
+      console.log("Product updated:", respose.data);
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const productDelete = async (id) => {
     try {
       const response = await axios.delete(`${url}/products/${id}`, {
@@ -62,7 +76,7 @@ export const TaskProvider = ({ children }) => {
 
   return (
     <TaskContext.Provider
-      value={{ products, addProduct, productDelete, getProducts }}
+      value={{ products, addProduct, productDelete, getProducts, updateProduct }}
     >
       {children}
     </TaskContext.Provider>

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Tasks } from "./pages/Tasks";
+import { UpdateProducts } from "./pages/UpdateProducts";
 import { CreateProducts } from "./pages/CreateProducts";
 import { PrivateRoutes } from "./components/PrivateRoutes";
 import { GeneralProvider } from "./context/GeneralContext";
@@ -19,7 +20,9 @@ export const App = () => {
               <Route element={<PrivateRoutes />}>
                 <Route path="/tasks" element={<Tasks />} />
                 <Route path="/formProducto" element={<CreateProducts />} />
+                <Route path="/editProducto" element={<UpdateProducts />} />
               </Route>
+              
             </Routes>
           </TaskProvider>
         </GeneralProvider>

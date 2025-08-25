@@ -92,10 +92,12 @@ export const FormRegister = () => {
         {error && <span className="text-danger">{error}</span>}
         {message && <span className="text-success">{message}</span>}
         <button className="btn btn-primary col-12 mb-3">Enviar</button>
-        <span className="me-5">Ya tienes cuenta</span>
-        <Link to="/" className="text-primary col-12">
-          Iniciar Sesión
-        </Link>
+        <div className="text-center">
+          <span className="me-5 text-primary">Ya tienes cuenta</span>
+          <Link to="/" className="text-primary col-12 text-decoration-none">
+            Iniciar Sesión
+          </Link>
+        </div>
       </form>
     </div>
   );

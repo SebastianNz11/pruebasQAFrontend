@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
-import {useContext} from "react";
-import {Link} from 'react-router-dom'
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GeneralContext } from "../context/GeneralContext";
 import { TaskContext } from "../context/TaskContext";
 
-
 export const FormLogin = () => {
-
   const { login, error } = useContext(GeneralContext);
   const { getProducts } = useContext(TaskContext);
 
@@ -17,9 +15,9 @@ export const FormLogin = () => {
     formState: { errors },
   } = useForm();
 
-  const onsubmit = async(data) => {
+  const onsubmit = async (data) => {
     console.log(data);
-    await login(data)
+    await login(data);
     getProducts();
     reset();
   };
@@ -71,10 +69,12 @@ export const FormLogin = () => {
         )}
         {error && <span className="text-danger">{error}</span>}
         <button className="btn btn-primary col-12 mt-3 mb-3">Enviar</button>
-        <span className="text-primary me-5">¿No tienes una cuenta?</span>
-        <Link to="/register" className="text-primary col-12">
-          Registrarse
-        </Link>
+        <div className="text-center">
+          <span className="text-primary me-5">¿No tienes una cuenta?</span>
+          <Link to="/register" className="text-primary col-12 text-decoration-none">
+            Registrarse
+          </Link>
+        </div>
       </form>
     </div>
   );
